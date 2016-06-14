@@ -4,7 +4,7 @@ var mongoose = require('mongoose');
 var invoiceSchema = mongoose.Schema({
   customer: {
     type: mongoose.Schema.Types.ObjectId,
-    reference: 'Customer'
+    ref: 'Customer'
   },
   service: {
     type: String,
@@ -66,4 +66,10 @@ module.exports.updateInvoice = function(id, invoice, options, callback) {
 module.exports.removeInvoice = function(id, callback) {
   var query = { _id: id };
   Invoice.remove(query, callback);
+}
+
+// Get customer invoices
+module.exports.getCustomerInvoices = function(customer_id, callback, limit) {
+  var query = { customer: customer_id };
+  Invoice.find(query, callback).limit(limit).populate('customer').sort([['createdAt', 'descending']]);
 }

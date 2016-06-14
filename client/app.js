@@ -13,6 +13,10 @@ myApp.config(function($routeProvider) {
     controller: 'CustomersController',
     templateUrl: 'views/customer_details.html'
   })
+  .when('/customers/add', {
+    controller: 'CustomersController',
+    templateUrl: 'views/add_customer.html'
+  })
   .when('/invoices', {
     controller: 'InvoicesController',
     templateUrl: 'views/invoices.html'
@@ -20,6 +24,10 @@ myApp.config(function($routeProvider) {
   .when('/invoices/details/:id', {
     controller: 'InvoicesController',
     templateUrl: 'views/invoice_details.html'
+  })
+  .when('/invoices/add', {
+    controller: 'InvoicesController',
+    templateUrl: 'views/add_invoice.html'
   })
   .otherwise({
     redirectTo: '/'

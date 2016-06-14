@@ -15,4 +15,17 @@ myApp.controller('CustomersController', ['$scope', '$http', '$location', '$route
       $scope.customer = response;
     });
   };
+
+  $scope.getCustomerInvoices = function() {
+    var id = $routeParams.id;
+    $http.get('/api/invoices/customer/' + id).success(function(response) {
+      $scope.customer_invoices = response;
+    });
+  };
+
+  $scope.addCustomer = function() {
+    $http.post('/api/customers/', $scope.customer).success(function(response) {
+      window.location.href = '/#customers';
+    });
+  };
 }]);

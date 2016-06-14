@@ -47,4 +47,13 @@ router.delete('/:id', function(req, res) {
   })
 })
 
+// Get all invoices for a single customer
+router.get('/customer/:customer_id', function(req, res) {
+  var customer_id = req.params.customer_id;
+  Invoice.getCustomerInvoices(customer_id, function(err, invoice) {
+    if (err) res.send(err);
+    res.json(invoice);
+  })
+})
+
 module.exports = router;

@@ -15,4 +15,16 @@ myApp.controller('InvoicesController', ['$scope', '$http', '$location', '$routeP
       $scope.invoice = response;
     });
   };
+
+  $scope.getCustomers = function() {
+    $http.get('/api/customers').success(function(response) {
+      $scope.customers = response;
+    });
+  };
+
+  $scope.addInvoice = function() {
+    $http.post('/api/invoices/', $scope.invoice).success(function(response) {
+      window.location.href = '/#invoices';
+    });
+  };
 }]);
