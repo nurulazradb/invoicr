@@ -9,9 +9,13 @@ myApp.config(function($routeProvider) {
     controller: 'CustomersController',
     templateUrl: 'views/customers/index.html'
   })
-  .when('/customers/add', {
+  .when('/customers/new', {
     controller: 'CustomersController',
-    templateUrl: 'views/customers/add.html'
+    templateUrl: 'views/customers/new.html'
+  })
+  .when('/customers/:id/edit', {
+    controller: 'CustomersController',
+    templateUrl: 'views/customers/edit.html'
   })
   .when('/customers/:id', {
     controller: 'CustomersController',
@@ -21,9 +25,13 @@ myApp.config(function($routeProvider) {
     controller: 'InvoicesController',
     templateUrl: 'views/invoices/index.html'
   })
-  .when('/invoices/add', {
+  .when('/invoices/new', {
     controller: 'InvoicesController',
     templateUrl: 'views/invoices/new.html'
+  })
+  .when('/invoices/:id/edit', {
+    controller: 'InvoicesController',
+    templateUrl: 'views/invoices/edit.html'
   })
   .when('/invoices/:id', {
     controller: 'InvoicesController',

@@ -28,4 +28,22 @@ myApp.controller('CustomersController', ['$scope', '$http', '$location', '$route
       window.location.href = '/#customers';
     });
   };
+
+  $scope.updateCustomer = function() {
+    $http.put('/api/customers/' + $scope.customer._id, $scope.customer).success(function(response) {
+      window.location.href = '/#customers';
+    });
+  };
+
+  $scope.deleteCustomer = function(id) {
+    $http.delete('/api/customers/' + id, $scope.customer).success(function(response) {
+      window.location.href = '/#customers';
+    });
+  }
+
+  $scope.deleteInvoice = function(id) {
+    $http.delete('/api/invoices/' + id, $scope.invoice).success(function(response) {
+      window.location.reload();
+    });
+  };
 }]);

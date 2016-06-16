@@ -31,7 +31,7 @@
         <td>
           <a href="#/invoices/{{invoice._id}}" class="btn btn-primary">Details</a>
           <a href="#/invoices/{{invoice._id}}/edit" class="btn btn-default">Edit</a>
-          <a href="#/invoices/{{invoice._id}}/delete" class="btn btn-danger" id="deleteInvoice">Delete</a>
+          <button id="deleteInvoice" ng-click="deleteInvoice(invoice._id)" class="btn btn-danger">Delete</button>
         </td>
       </tr>
     </tbody>
