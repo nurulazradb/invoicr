@@ -18,7 +18,7 @@ myApp.controller('CustomersController', ['$scope', '$http', '$location', '$route
 
   $scope.getCustomerInvoices = function() {
     var id = $routeParams.id;
-    $http.get('/api/invoices/customer/' + id).success(function(response) {
+    $http.get('/api/customers/' + id + '/invoices').success(function(response) {
       $scope.customer_invoices = response;
     });
   };
